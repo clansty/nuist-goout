@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>扫码验证 - 疫情期间学生请假外出验证</title>
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta http-equiv=Pragma content=no-cache>
+    <meta http-equiv=Expires content=-1>
+    <meta name=keywords content=InfoPlus>
+    <meta name=renderer content=webkit>
+    <meta http-equiv=X-UA-Compatible content="IE=Edge">
+    <meta itemscope content=nhYseAqDvURVS9HvzDSJugomeNs3oMSf>
+    <meta name=theme-color content=#039be5>
+    <meta name=format-detection content="telephone=no">
+    <style>
+      @font-face {
+        font-family: 'icomoon';
+        src: url(data:font/woff;base64,d09GRgABAAAAAEHcAAwAAAAAQYwAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABHAAAATwAAAE836bikU9TLzIAAAJYAAAAYAAAAGAPNw6/Y21hcAAAArgAAAFkAAABZC4D+U1nYXNwAAAEHAAAAAgAAAAIAAAAEGdseWYAAAQkAAA4vAAAOLwasef+aGVhZAAAPOAAAAA2AAAANhYAjEBoaGVhAAA9GAAAACQAAAAkCBsElGhtdHgAAD08AAAB5AAAAeRjEyCubG9jYQAAPyAAAAD0AAAA9Gc8dQptYXhwAABAFAAAACAAAAAgAIMApm5hbWUAAEA0AAABhgAAAYaZSgn7cG9zdAAAQbwAAAAgAAAAIAADAAAAAQAAAAoAHgAsAAFsYXRuAAgABAAAAAAAAAABAAAAAWxpZ2EACAAAAAEAAAABAAQABAAAAAEACgAAAAEAEgAGACIAOACaALoA1AD4AAEABgAJAAoAEQATABcAeAABAAQAWgAIABkACQAJABEADAAXAAUABAAKACgAOgBOABwADgAWABQAFQAHABEACAATAAsAFwAKAAgAFQAMABwACAAWABQAFQAHAAYABwAFAFoACQAUABIAEgAMABMAGAAXAAUAWwAJABQAEQARAAgAFQAXAAwABAABAAQAHQANABQACgAIABEABwARAA8ACQAWAAgAFgAbAAEABAAeAAoACAAaAA8ADQAIABgADwAUABMAAgAGABYAWwAHAA4AFgAPABMAEAAEAD0ABgAMAAgAFgAKAA4AAQAEAHcAAgB4AAMDxgGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAA8hwDmf+aAGYDmQBmAAAAAQAAAAAAAAAAAAAAIAAAAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEAUgAAABOAEAABQAOAAEAIAAyADUAXwBlAGkAcAB2AHnjw+VM5V3mHei26RvpcOmM8ALwDfAX8EHwRPBm8GjwbvCO8Jzw0fDg8OrxB/EQ8UvxiPH48hz//f//AAAAAAAgADIANABfAGEAZwBrAHIAeePD5UzlXeYA6LbpAOlw6YzwAvAM8BfwQfBE8GXwaPBu8I7wnPDR8ODw6vEA8RDxS/GI8fjyG//9//8AAf/j/9L/0f+o/6f/pv+l/6T/ohxZGtEawRofF4cXPhbqFs8QWhBREEgQHxAdD/0P/A/3D9gPyw+XD4kPgA9rD2MPKQ7tDn4OXAADAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAB//8ADwABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAACAIAAgQOAAtUAAwATAAAlESERATIWFREUBiMhIiY1ETQ2MwMq/awCVCI0MyP9rCI0MyPVAaz+VAIAMiL+VCMxMSMBrCIyAAACAID/6QOAA1UACwApAAABIiY1NDYzMhYVFAYHNjc+ATc2MxEiBw4BBwYHJicuAScmIxEyFx4BFxYCADRMSzU0TEs1JSwsYjU0ODc1NWIsKyYlLCxiNTQ4NzU1YiwrAlVLNTRMTDQ1S5YjHBwmCgv+LAsKKBwcIyMcHCgKCwHUCwomHBwAAAAAAQDAACsDQANVAAUAAAkBByUFJwIAAUAe/t7+3h4DVfz0HoCAHgAAAAYAVf+rA6sDpAAcACoAOABWAFsAXwAAJRQWOwEVFBYzMjY9ATMVFBYzMjY9ATMyNjURIREDIgYVERQWMzI2NRE0JiEiBhURFBYzMjY1ETQmJzc2NCcmIg8BLgEjIgYHJyYiBwYUHwEOARUhNCYnByM1MxUzIzUzAQAZEiomGhslViUbGiYqEhn+AGsaJiYaGyUlArsbJSUbGiYm7jcHBwYSBj8aOB8fORo/BhIGBgY4MDkCADov7Csr1SsrqxIZlRslJRuVlRslJRuVGRIBqv5WAaolG/7WGyUlGwEqGyUlG/7WGyUlGwEqGyX6NwYSBgcHPw0ODg0/BwcGEQc3JGtAQGwjeisrKwAAAAAJAKsAVQNVAwAAAwAIAAwAEAAVABkAHgAiACYAABMzNSMBMzUjFSEzNSM1MzUjBTM1IxUBFTM1BTM1IxUBMzUjETM1I6uqqgEAqqr/AKqqqqoBAKqqAQCq/laqqgEAqqqqqgJVq/1Vq6urVaurq6sBq6urq6ur/wCr/lWrAAAAAAEAqwBVA1UDAAAJAAABITcnCQE3JyE1A1X9+e48/qsBVTzuAgcB1e88/qv+qj3uVQAAAAABAKsAVQNVAwAACAAAAQcXIRUhBxcBAgA87v35AgfuPAFVAwA871XuPQFWAAEAkgCAA4ACvAAFAAAlJwcXAScBgLI87gIAPPmyPe4CADwAAAEA1QCAAysC1QALAAABJwcnBxcHFzcXNycDKz3u7j3v7z3u7j3vApk87u487u887u487wADAIAAqwOAAqsAAwAHAAsAADchNSE1ITUhNRUhNYADAP0AAwD9AAMAq1WAVdZWVgADAKsBVQNVAgAADAAZACYAAAEiBhUUFjMyNjU0JiMhIgYVFBYzMjY1NCYjISIGFRQWMzI2NTQmIwEAIzIyIyMyMiMCACMyMiMjMjIj/wAjMjIjIzIyIwIAMiMkMjIkIzIyIyQyMiQjMjIjJDIyJCMyAAAAAAMBqwBVAlUDAAALABgAJAAAATI2NTQmIyIGFRQWFyIGFRQWMzI2NTQmIxEiBhUUFjMyNjU0JgIAIzIyIyMyMiMjMjIjIzIyIyMyMiMjMjICVTIkIzIyIyQyVTIjJDIyJCMy/wAyIyQyMiQjMgAAAAABAKsAVQNVAwAANQAAAS4BIyIHDgEHBhUUFx4BFxYzMjc+ATc2NyMGBw4BBwYjIicuAScmNTQ3PgE3NjMyFhcHIREHAvEufEdHPj5cGxsbG1w+Pkc8NTZXHx8OWQ0YFz8mJio1Ly5GFBQUFEYuLzU1XSKJASpkApwuNhsbXD4/Rkc+Pl0bGxQTRC8vNyUfIC0NDBQURS8vNTUuL0UVFCkjigErZAAAAAADAIAAKwOAAysADgAaAB4AAAEhIgYVERQWMyEyNjURJwMiJjU0NjMyFhUUBhMhNSEC1f4AIzIyIwJWIzKr1TVLSzU1S0tL/lUBqwMrMiT9qyMyMiMCAKv9VUs1NUtLNTVLAauqAAAAAAQAVQArA6sDKwAOABIAHgAjAAABISIGFREzFSE1MxE0JiMDITUhNyImNTQ2MzIWFRQGAyEVITUDK/2qNUurAgCrSzWA/qoBVoASGRkSERkZPP4AAgACVUs1/wCqqgEANUv+K9VWGRESGRkSERkBgKurAAAAAgArACsDqwMrADYAPQAAASIHDgEHBhUjHwE3IzQ3PgE3NjMyFx4BFxYVFAcOAQcGIyImJwceATMyNz4BNzY1NCcuAScmIwcVFzcnNSMCKk9GRmgeHoCmA6yAFxhRNjc+PjY2URgXFxhRNjY+Pm0oPTSMT1BGRmgeHx8eaEZGUCq3HpVAAysfHmhGRk+nBq0+NjZRGBcXGFE2Nj4+NzZRGBcvKT00PB4eaEZGUE9GRmgeH9bVbDNZtQAAAAADAFUAAAOrA1UAHAAgAD4AAAEiBw4BBwYVFBceARcWMzI3PgE3NjU0Jy4BJyYjEyM1MzcHDgEVIzU0Nj8BPgE1NCYjIgYVIzQ2MzIWFRQGBwIAWE5OdCEiIiF0Tk5YWE5OdCEiIiF0Tk5YK1ZWWCYXG1YbFzUMDTIjIzJWZEdHZBYSA1UhInNOTlhZTU50ISIiIXROTVlYTk5zIiH9K1X1JxcxMBUjPxc2Cx8SIzIyI0ZkZEYcMhMABABVAAADqwNVAAQAIQA9AEIAACUzESMREyIHDgEHBhUUFx4BFxYzMjc+ATc2NTQnLgEnJiMRIicuAScmNTQ3PgE3NjMyFx4BFxYVFAcOAQcGAzM1IxUB1VZWK1hOTnQhIiIhdE5OWFhOTnQhIiIhdE5OWEc+Pl0aGxsaXT4+R0c+Pl0aGxsaXT4+clZW1QEA/wACgCEic05OWFlNTnQhIiIhdE5NWVhOTnMiIf0AGxtdPj5HRj4/XBsbGxtcPz5GRz4+XRsbAdZVVQAABQAAACsEAAMrAAUAFgAiADQAOQAAATUHJxUXEyEiBhURFBYzITI2NRE0JiMFMhYVFAYjIiY1NDYBITU0Nz4BNzYzMhceARcWHQEBIREhEQOAgICAq/yqIzIyIwNWIzIyI/2qNUtLNTVLSwE1/gAcHFAsLCAgLCxQHBwBVv6qAVYCVStVVStVASsyJP2rIzIyIwJVJDKASzU1S0s1NUv+ACogGRkhCQkJCSEZGSAqAQABAP8AAAAAAAIAVQBVA6sDAAAQABYAAAEhIgYVAxQWMyEyNjURNCYjFQUlNQUlA1X9ViQxATIkAqokMjIk/qv+qwFVAVUDADIj/gAkMjIkAgAjMqvV1VbW1gAAAAEAVQArA9UDKwAFAAA3CQEDDQFWA3/8gQECgP2AKwGAAYD+1VVWAAAEACv/1QPVA4AACAAPAB8AIwAAEyMRFBYzITUhATMRIxUzEQEhIgYVERQWMyEyNjURNCYDIREhgFUyIwKr/VUB1VarVQEr/askMjIkAlUjMjIj/asCVQLV/VYkMlYBAAGqVf6rAlUyI/2qIzIyIwJWIzL9VQJWAAAEACv/1QPVA4AACAAYABwAMgAAEyMRFBYzITUhASEiBhURFBYzITI2NRE0JgMhESEDIzUzMjY9ATQmKwEVMxUjIgYdASE1gFUyIwKr/VUDAP2rJDIyJAJVIzIyI/2rAlWrqlUjMjIjq6tVJDIBAALV/VYkMlYDVTIj/aojMjIjAlYjMv1VAlb+VVUyJFUjMlVVMiSqVQAAAAQAK//VA9UDgAAPABMAHAA2AAABISIGFREUFjMhMjY1ETQmAyERIQUjERQWMyE1IQE1NCYjMjY9ATQmKwEVMxUjFTMVIxUzMjY1A4D9qyQyMiQCVSMyMiP9qwJV/QBVMiMCq/1VAlUlGxslMiOrq1VVq6sjMgOAMiP9qiMyMiMCViMy/VUCVlb9ViQyVgFVQBslJRtAIzJVVVZVVTIjAAAEACv/1QPVA4AACAATACMAJwAAEyMRFBYzITUhATMRIxUjNSMRMxUBISIGFREUFjMhMjY1ETQmAyERIYBVMiMCq/1VAgBVVVVWqwEA/askMjIkAlUjMjIj/asCVQLV/VYkMlYBAAGqqqr/AKoCVTIj/aojMjIjAlYjMv1VAlYAAAQAK//VA9UDgAAPABMAHAAvAAABISIGFREUFjMhMjY1ETQmAyERIQUjERQWMyE1IQE1NCYrATUzNSERMxUjFTMyNjUDgP2rJDIyJAJVIzIyI/2rAlX9AFUyIwKr/VUCVTIjVar/AKurqyMyA4AyI/2qIzIyIwJWIzL9VQJWVv1WJDJWAVVVJDJVVf8AVVUyIwAAAAAFACv/1QPVA4AACAAYABwAMQA2AAATIxEUFjMhNSEBISIGFREUFjMhMjY1ETQmAyERIQEzMjY9ATQmKwE1MzUjIgYVERQWMzUzFSM1gFUyIwKr/VUDAP2rJDIyJAJVIzIyI/2rAlX+q1UjMjIjVaqqJDIyJFVVAtX9ViQyVgNVMiP9qiMyMiMCViMy/VUCVv4AMiNVJDJVVTIj/wAjMqpVVQAAAAQAK//VA9UDgAAIABgAHAAjAAATIxEUFjMhNSEBISIGFREUFjMhMjY1ETQmAyERIQETNSEVMwOAVTIjAqv9VQMA/askMjIkAlUjMjIj/asCVf6rqv8Aq6sC1f1WJDJWA1UyI/2qIzIyIwJWIzL9VQJW/gABVVVV/qsAAAAGACv/1QPVA4AACAAYABwAOgA/AEQAABMjERQWMyE1IQEhIgYVERQWMyEyNjURNCYDIREhATMyNj0BNCYjMjY9ATQmKwEiBh0BFBYzIgYdARQWEzMVIzUVMxUjNYBVMiMCq/1VAwD9qyQyMiQCVSMyMiP9qwJV/qtVIzIlGxslMiNVJDImGhomMiRVVVVVAtX9ViQyVgNVMiP9qiMyMiMCViMy/VUCVv4AMiNAGyUlG0AjMjIjQBslJRtAIzIBVVVVq1VVAAAAAAUAK//VA9UDgAAIABgAHAAxADUAABMjERQWMyE1IQEhIgYVERQWMyEyNjURNCYDIREhBSMiBh0BFBY7ARUjFTMyNjURNCYjFSM1M4BVMiMCq/1VAwD9qyQyMiQCVSMyMiP9qwJV/wBVJDIyJFWrqyMyMiNVVQLV/VYkMlYDVTIj/aojMjIjAlYjMv1VAlZWMiNVJDJVVTIjAQAjMqpVAAAFACv/1QPVA4AACAAcACEAMQBBAAATIxEUFjMhNSEBNTQmKwEiBh0BFBY7ARUjFTMyNic1MxUjASEiBhURFBYzITI2NRE0JgMjNSMVIxUzFTM1MxEhESGAVTIjAqv9VQHVMiMrIzIyIyuAgCMygCsrAav9qyQyMiQCVSMyMiNVVlVVVlX9qwJVAtX9ViQyVgGAqiQyMiQqJDIqVjKkKioBVTIj/aojMjIjAlYjMv6rVVVWVVX/AAJWAAAAAAMAVQAAA6sDVQAcACAAJAAAASIHDgEHBhUUFx4BFxYzMjc+ATc2NTQnLgEnJiMTIxEzNSM1MwIAWE5OdCEiIiF0Tk5YWE5OdCEiIiF0Tk5YK1ZWVlYDVSEic05OWFlNTnQhIiIhdE5NWVhOTnMiIf2AAQBWVQAAAAIA1QArAysDKwAKABAAAAEhIgYVAyUFETQmAycHESERAtX+ViQxAQErASsyJNXVAaoDKzIk/VaAgAKqJDL9gFxcAir91gAAAAIAgABBA2oDKwALAC0AAAEyNjU0JiMiBhUUFiEXByc1Jw4BIyInLgEnJjU0Nz4BNzYzMhceARcWFRQGBxcBlk9xcFBPcXABUNRA1AwkXTM6MjNLFhYWFkszMjo6MjJLFhUiIAwBVXBQT3FxT1Bw1EDUIgwgIhUWSjMyOjkzM0sWFhYWSzMzOTNdJAwAAgAAAFUEAAMAACsAMwAAASYnLgEnJiMiBw4BBwYHBgcOAQcGFRQXHgEXFjMhMjc+ATc2NTQnLgEnJicPASczNTMVMwM6Cx0cUzU0Oi4rKkodHhQwKSo+ERIUFEYuLzUCKywnJzkREQ8QNSUkKWXV1YCqgAH/Ny8vRRMUDQwtICAmBRYWRCwsMjUuL0UVFBEROicnLColJTkSEgN/1dWrqwAAAAADAKsAAANVA4AAIQAtADcAAAEjNTQnLgEnJiMiBw4BBwYdASMiBhURFBYzITI2NRE0JiMBIiY1NDYzMhYVFAYTITU0NjMyFh0BAwArEBE6JycsLCcnOhEQKyMyMiMCACMyMiP/ACMyMiMjMjJh/vhNNzdNAlVWLCcnORERERE5JycsVjIj/lUjMjIjAasjMv6AMiQjMjIjJDIBgFY2Tk42VgAAAAMAqwAAA1UDgAALADQAOAAAJTI2NTQmIyIGFRQWASM1NCcuAScmIyIHDgEHBhUzNDYzMhYdASEiBhURFBYzITI2NRE0JiMRIREhAgAjMjIjIzIyASMrEBE6JycsLCcnOhEQUU03N03+fCMyMiMCACMyMiP+AAIA1TIkIzIyIyQyAYBWLCcnORERERE5JycsNk5ONlYyI/5VIzIyIwGrIzL+AAGrAAAAAAQAqwAAA1UDgAAhACsALwA7AAABIzU0Jy4BJyYjIgcOAQcGHQEjIgYVERQWMyEyNjURNCYjJTIWHQEhNSM0NgEhESEBMjY1NCYjIgYVFBYDACsQETonJywsJyc6ERArIzIyIwIAIzIyI/8AN03+/ARNATf+AAIA/wAjMjIjIzIyAlVWLCcnORERERE5JycsVjIj/lUjMjIjAasjMtpONlZWNk79JgGr/tUyJCMyMiMkMgAAAAMAVQCAA4AC1QAPAB8ALwAAASMiBhURFBY7ATI2NRE0JiEjIgYVERQWOwEyNjURNCYhIyIGFREUFjsBMjY1ETQmAQCAEhkZEoASGRkCQ4ARGRkRgBIZGf7EgBIZGRKAERkZAtUZEf4AEhkZEgIAERkZEf4AEhkZEgIAERkZEf4AEhkZEgIAERkAAAAABQCAACsDgAMrAAgAEQAaACMALwAAEyMVFBY7ATUjETM1IyIGHQEzASMVMxUzNTQmAyMVMzI2PQEjASIGFRQWMzI2NTQm1VUyI6urq6sjMlUCVqurVTIjq6sjMlX+1TVLSzU1S0sBK6sjMlUCVVYyJKoBAFaqqiQy/VVVMiOrAQBLNTVLSzU1SwAAAAAEAFUAAAOrA1UADgASABYAGgAAASEiBhUDNyEyNjURNCYjASEVIQUhNSE3ITUhA1X9ViQxAasCVSQyMiT9qwIA/gABVf6rAVWr/gACAANVMiP9AKsyIwIAIzL+1laAVqpWAAAABAAAACsEAAMrABAAHAAuAEcAAAEhIgYVERQWMyEyNjURNCYjBTIWFRQGIyImNTQ2ASE1NDc+ATc2MzIXHgEXFh0BNzMXBy4BJy4BNTQ2Nz4BNxcHIw4BFRQWFwOr/KojMjIjA1YjMjIj/ao1S0s1NUtLATX+ABwcUCwsICAsLFAcHKVGQFUqPA8FBgYGDjwqVUBGBwgHCAMrMiT9qyMyMiMCVSQygEs1NUtLNTVL/gAqIBkZIQkJCQkhGRkgKqpVVR9XNBUqFxYrFDRXH1VVFCsWFysUAAAAAgDVAFUDKwMAAAQADAAAExUhNSERMxEhETMJAdUCVv2qqwEAq/7V/tUDAFVV/lX/AAEAASv+1QABAIAAKwOAAysAKgAAARYXHgEXFhc3PgEXHgEzMhYdARQGIyInLgEnJjU0NjsBMhYVFBYXFgYPAQEbFx4dSCkoLl4JFwskTCgSGRkSloSExTk5GRKVEhkMDAQGCF4B3i0pKUceHhdeCQUDDA0ZEZYRGTk5xYSElhIZGRIoTCQLGAleAAAFAIAAKwOAA4AAFwAjACcAKwAvAAABIy4BIyIGByMiBhURFBYzITI2NRE0JiMhMhYVFAYjIiY1NDYTITUhNyE1ITUhNSEDK7MNQSoqQQ2zIzIyIwJWIzIyI/7VEhkZEhIZGWf+1gEqgP5WAar+VgGqAyslMDAlMiT9qyMyMiMCVSQyGRISGRkSEhn9qlZVVVZVAAAAAgCrACsDVQMrAAcADAAAASMRIxEjFzcBFSE1IQKrgFaAq6v+AAKq/VYBgAGr/lWrq/8AVVUAAAACACsAqwOrAqsACQANAAABFyEVIQcXCQEHJREzEQHumf2kAlyZPQEA/wA9AWdWAm6ZVZk8AQABAD09/gACAAAAAQCrACsDVQOAAC8AAAE1Bxc1MhceARcWFRQHDgEHBiMiJy4BJyY1IxQXHgEXFjMyNz4BNzY1NCcuAScmIwIA1dU1Ly5GFBQUFEYuLzU1Ly5GFBRVGhtdPj5HRz4+XRsaGhtdPj5HAtWr1darFBRGLi81NS8uRhQUFBRGLi81Rz4+XRsaGhtdPj5HRz4+XRsaAAAAAAUAVQAAA6sDVQAJABoAHwAjACcAABMjERQWMyE1IRElISIGFREUFjMhMjY1ETQmIwMhNSEVByE1IRMhNSGrVjIkAlX9qwKq/gAjMjIjAgAkMjIkKv5VAaur/wABAKv+VQGrAqv9qiMyVQJWqjIj/gAjMjIjAgAjMv6AVlaqVQEAVQAAAAEBAACaAwACZgACAAABIQEBAAIA/wACZv40AAABATMAmgMAApoAAgAACQERAwD+MwGa/wACAAAABgBgACADgAMgAAUACQAYAB0AIgAnAAAbASETESEBJyEHBSIGFRQWOwEyNjU0JisBAwchJyEPASEnIQ8BISchYKAB4KD84AL5jP5GjAEZGyUlG6AbJSUboGATAYYT/qAqEwHaE/5MJhMCJhP+AAIgAQD/AP4AAgDg4MAlGxslJRsbJQGAICBAICBAICAAAAAAAQDVAHYDKwMaACkAAAEmBgcGIicmJyYiBwYHDgEVERQWMzI2PQE2FhcWFxYyNzY3PgE1ETQmJwMQDBkJKXIpISkpVikpIQYHGRISGShpJiEpKVYpKSEGBw8MAvIFBQkoKCEQEREQIQYQCP3VERkZEcMgBiUhERAQESEGDwkBVQ0VBQAAAgDVACsDKwMrAAoAEgAAJRQWMyEyNjURIREBIycjByMVIQEAMiMBViMy/gACK5Yq1iqWAlaAIzIyIwIA/gACgCsrVQABAQAAmgLNApoAAgAAAREBAs3+MwKa/gABAAAAAQEAAM0DAAKaAAIAACUhAQMA/gABAM0BzQAAAAMAAAB7BAACuAAbADcARgAAASIHDgEHBhUUFx4BFxYzMjc+ATc2NTQnLgEnJgMiJy4BJyY1NDc+ATc2MzIXHgEXFhUUBw4BBwYnJjYjIgYVFBYzMjY1NAYCAH5gX4EhISEhgV9gfn5gX4EhISEhgV9gfi8qKT4SEhISPikqLy8qKT4SEhISPikqLxApGS9DQy8vQ2UCuCcnZC8vDg8vLmUnJycnZS4vDw4vL2QnJ/4FERI8KCguLSgpPBERERE8KSgtLigoPBIR3RFdQS0uQUEuFSQAAQEhAKEC3wKSACAAACUGIi8BBwYiJyY0PwEnJjQ3NjIfATc2MhcWFA8BFxYUBwLfEjMSiIgSMxISEo6OEhISMxKIiBIzEhISjo4SEqESEpubEhISMxKioRIzEhISm5sSEhIzEqGiEjMSAAAABACIADMDVQMAACkARQBSAF4AAAEiBw4BBwYVFBYXDwEOARUUFjMyNj8DHgEzMjc+ATc2NTQnLgEnJiMRIicuAScmNTQ3PgE3NjMyFx4BFxYVFAcOAQcGAyIGFRQWMzI2NTQmIxEiJjU0NjMyFhUUBgIrPjY3URcYCAc2KxIUTzcYLhQCA2AXLhk9NzZRGBcXGFE2Nz0sJyc6ERERETonJywsJyY6ERERETomJyxHZGRHRmRkRjVLSzU1S0sDABgXUTc2PhgvFjYsEjEaOE4REAMCYQgHFxhRNjc9PjY3URcY/gARETomJywsJyc6ERERETonJywsJyY6EREBgGRHRmRkRkdk/tVLNTVLSzU1SwAFAIAAVQOAAoAAEAAeACIAJQAuAAABISIGFREUFjMhMjY1ETQmIwEXHgEzMjY/AQcXITcnBxEXByU3EREVBQYiJyU1IQMr/aojMjIjAlYjMjIj/mJFChcNDRcKRQKc/eacAriamgG8mv7nBxYH/ucCVgKAMiP+gCQyMiQBgCMy/sg8CAkJCDwCm5sCfwEghpqahv7gAWIJ9gYG9gkAAAAABABvACsDkQMVAA8AJQAxAEMAAAEyFhcTFgYjISImNxM+ATM1IgYHAw4BFx4BMyEyNjc2JicDLgEjExQGIyImNTQ2MzIWNzQmIyIGFRQWFx4BMTA2Nz4BAgASIg78GyQ1/gA1JBv8DiISKUkZ/BkGFRRMMQIAMUwUFQYZ/BlJKTcgFxcgIBcXIAklGxslAgMRKioRAwICwBcX/lwtQUEtAaQXF1UtKv5cKlYkJCcnJCRWKgGkKS796xcgIBcXICDpGyUlGwYMBixnZywGDAAAAAMAgAArA4ADKwAbADgAXgAAASIHDgEHBhUUFx4BFxYzMjc+ATc2NTQnLgEnJgMiJy4BJyY1NDc+ATc2MzIXHgEXFhUUBw4BBwYjEzc2NCcmIg8BJyYiBwYUHwEHBhQXHgEzMjY/ARceATMyNjc2NCcCAE9GRmkeHh4eaUZGT09GRmkeHh4eaUZGTz42N1EXGBgXUTc2Pj42N1EXGBgXUTc2Ph5xBgYGEgZxcQYSBgYGcXEGBgMIBAQIA3FxAwgEBAgDBgYDKx8eaEZGT1BGRmgeHh4eaEZGUE9GRmgeH/1VGBdRNzY+PTc2URgXFxhRNjc9PjY3URcYAStxBhEHBgZxcQYGBhIGcXEGEgYEAwMEcXEEAwMEBhEHAAAAAwAA/4AEgAOAADMAYgCIAAABIgYHDgEHDgEVFBYXHgEXHgEXFBYXPgE3PgEzMhYzHgEzMjY3PgE3PgE1NCYnLgEnLgEjNTEyFx4BFxYVFAcOAQcGIyImJwYHDgEHBgc1PgE1NCYnJicuAScmNTQ3PgE3NjMBFBYXFS4BJw4BIyImJzI3PgE3Njc+ATc+ATU0JjUeARUUBgcOAQHgJkkiITkYLTAPDw8uHRcdBQEBAgQCEi8ZBAgEDx0PJkkiITkYLTAwLRg5ISJJJmNYV4MlJiYlg1dYYxMmEiYqKVcsLC0wRAEBKSEhLgwNJiWDV1hjAgQyKk2PQxAgEUiBNTc0NGItLCcnPhYXFwE2P1RGAQEDAAwMCx8TJVowGzUYGi4TDy4bBQkEAgMDEhMBAgIMDAsfEyVaMTBaJRMfCwwMgB8eaUdHUFFHRmoeHwIDJxcYGwUFARkYUTEHDQcaIiFNKysuUEdHaR4f/JkqRRQWAiZCAgIlIAkJIRgYIB9LKSxeMQcQCC13RE6HLgUMAAAAAAIAAP+ABAADgAAGAA0AAAERJwcnNycBBxchERc3AcCgwGDAoAPgwKD+YKDAAUD+YKDAYMCgAeDAoAGgoMAAAAACAAD/twO3A24ADwA2AAABNCcmIyIHBhUUFxYzMjc2ARQHBiMiLwEGIyInJicmJyY1NDc2NzY3NjMyFxYXFhcWFRQHFxYVApJLS2ppTEtLTGlqS0sBJRYWHR8VxGZ+UUtLNjYfICAfNjZLS1FSS0o2NiAgR8QVAdtqS0tLS2ppS0xMS/6OHhUWFsNHICA2NkpLUVJLSjY2ICAgIDY2SktSfWfEFR4AAAABAEUAUQO7AvgAGgAAARQHAQYjIicBJjU0PwE2MzIfAQE2MzIfARYVA7sQ/hQQFhcQ/uMQEE4QFxcQqAF2EBcXEE4QAnMWEP4UEBABHRAXFhBOEBCoAXcQEE4QFwAAAAABAD8APwLmAuYALAAAJRQPAQYjIi8BBwYjIi8BJjU0PwEnJjU0PwE2MzIfATc2MzIfARYVFA8BFxYVAuYQThAXFxCoqBAXFhBOEBCoqBAQThAWFxCoqBAXFxBOEBCoqBDDFhBOEBCoqBAQThAWFxCoqBAXFxBOEBCoqBAQThAXFxCoqBAXAAAAAwAAAAADbgNuABoAMwBMAAABERQHBisBIicmPQE0NzY7ATU0NzY7ATIXFhUXNCcmJyYjIgcGBwYVFBcWFxYzMjc2NzY1MxQHBgcGIyInJicmNTQ3Njc2MzIXFhcWFQIABQUItwgFBQUFCIAFBQglCAUF7ioqR0hUVUdIKSoqKUhHVVRIRyoqgDs7ZWV3eGRlOzs7O2VkeHdlZTs7AoD/AAgFBQUFCCUIBQXJCAUFBQUIyVRIRyoqKipHSFRVR0gpKiopSEdVeGRlOzs7O2VkeHdlZTs7OztlZXcAAAIAAAAAAkkDbgAQACcAAAE0JyYjIgcGFRQXFjMyNzY1MxQHAwYHBiMiJyYnAyY1NDc2MzIXFhUBtysrPD0rKysrPTwrK5IT0AkSEhQVEhIJ0BNWVXp5VVYCST0rKiorPTwrKysrPD4o/kYTCwsLCxMBuig+eVZWVlZ5AAAFAAAASQP7A24ABwARAEQASQBWAAABNycHFTMVMxMmDwEGFxY/ATYTFRQHBiMhIicmNRE0NzYzITIXFhcWDwEGJyYjISIHBhURFBcWMyEyNzY9ATQ/ATYXFhUDFwEjNQEHJzc2MzIfARYVFAcB+0NXQjYg/AkKyAoJCgnICiUxMET+JUQxMDAxRAHbJB8IAgIHHAgKDQ3+JSYbGxsbJgHbJhsaBiQJCww3pP6ApAJ9NKU1EBcXEFYQEAESQ1ZCIDcBnAkKyAoJCQrICv61bEQxMDAxRAHbRDAxDwQJCQccCAMEGxsm/iUmGxsbGyZIBwUlCAQFDAGmpf6ApQE1NaU0EBBXEBcWEAACAAAAAANuA24AHwA/AAABFA8BFxYVFAcGIyEiJyY1ETQ3NjMyHwE3NjMyHwEWFQERFAcGIyIvAQcGIyIvASY1ND8BJyY1NDc2MyEyFxYVAa8FvlILCwsO/wAPCwsLCw8OC1O9BgcIBkEFAb8LCw8PC1K+BQgHBkEGBr5TCgoLDwEADwsLAVsHBr1TCw4PCwsLCw8BAA4LCwtSvgUFQQYIAe7/AA8LCgpTvgYGQQYHCAW+UgsPDwsLCwsPAAIABwAHA2YDZgAfAD8AAAERFAcGIyIvAQcGIyIvASY1ND8BJyY1NDc2MyEyFxYVARQPARcWFRQHBiMhIicmNRE0NzYzMh8BNzYzMh8BFhUBtwsLDw8KU70GCAcGQQYGvlILCwoPAQAPCwsBrwW+UgsLCw//AA4LCwsLDg8LUr4GBwgFQgUBkv8ADwoLC1K+BgZBBgcIBr1TCg8PCwsLCw8BgAcGvlILDw4LCwsLDgEADwsLC1K+BQVCBQgAAQAAAW4DJQJJABMAAAEVFAcGIyEiJyY9ATQ3NjMhMhcWAyUQEBf9SRcQEBAQFwK3FxAQAhJtFxAQEBAXbRcQEBAQAAADAAAASQQAAtsAGAAxAEoAAAEmJxYVFAcGIyInJjU0NwYHFhcWMzI3NjclNCcmIyIHBhUUFxYzMjc2NTQ3NjMyNzY1BRQHBgcGIyInJicmNTQ3Njc2MzIXFhcWFQO3V4MjS0tqaktLI4NXTHNyhoZyc0z+ZAgIC0c0MwgIDAsICCMjMQsICAHlC1CIh5aWh4hQCwtQiIeWloeIUAsBkodDO0ZpS0xMS2lGO0OHdUVGRkV13AsICDMzSAsICAgICzIiIwgIDNwTFIRPT1BPgxQTFBSDT09PT4MUFAAAAgAAAEkEAAO3ADIAUQAAARUUBwYjISInJjURNDc2MyEyFxYdARQHBiMhIgcGFREUFxYzITI3Nj0BNDc2OwEyFxYVExEUBwYjIi8BAQYjIi8BJjU0NwEnJjU0NzYzITIXFgMlMTBE/iVEMTAwMUQBkggFBQUFCP5uJhsbGxsmAdsmGxoGBQgkCAUG2wsLDw4LZf6MBggHBkEGBgF1ZQsLCw8BJA8LCwGlt0QxMDAxRAHbRDAxBQYIJAgFBRsbJv4lJhsbGxsmtwgFBQUFCAHt/twPCwsLZf6LBgZBBgcIBQF1ZQoPDwsLCwsAAAABAAAASQO3A24AMgAAARUUBwYrASInJj0BNCcmIyIHBh0BMzIXFhURFAcGIyEiJyY1ETQ3NjMhNTQ3NjMyFxYVA7cLCw8kDwsLKys8PSsqNhcQEBAQF/3cFxAQEBAXAYBLS2pqS0sCbpMOCwsLCw6TPCsrKys8bhAQF/63FxAQEBAXAUkXEBBuaUxLS0xpAAAEACUAAAQAAyUADwAYACkAegAAJTQnJiMiBwYVFBcWMzI3NgMzNSMiDwEGFQE0JyYjIgcGFRQXFjMyNzY1ExEUBwYHBgcGBwYjIiMiIxQHBiMiJyY1IxQHBiMiJyY1IyIjIiMiJyYnJicmJyY1NDc2MzU0NTQ1NDc2NzY3Nj8BNjc2OwE1NDc2MyEyFxYVAW4WFh0eFhYWFh4dFhbc3FsHBXAFAtwWFh0eFhYWFh4dFhaSAgMFBQQECgkEAwsLAisrPD0rK9srKzw9KyskAgsLBAMKCQQEBQYCAgoLDwEBAwMFBQhxCxISD1wLCg8CSQ8LC5IeFhUVFh4dFhYWFgFCkgVvBgf+yh4WFRUWHh0WFhYWHQJu/bcJBgcEBAIDAQE8KysrKzw8KysrKzwBAQMCBAQHBgkPCwq3BQ8QBgYODQgICQoHcgoIB24PCwsLCw8AAAAAAgAAAAAEAAMlAB8ATAAAAREUBwYjISInJjURFhcWFxYXFhcWOwEyNzY3Njc2NzY3FAcGBwYHBgcGBwYHBgcGKwEiJyYnJicmJyYnJicmJyYnJjU0NzYzITIXFhUEABsbJfy2JRsbGSHPTSAVFCIhHQIdISIUFSBhvCAZHBwq1zQGEhMMDREREA8NAg0PEBERDQwTEgY0YmEUIyAfGBcsA0olGxsCIf46JRsbGxslAcYcFow5GA0ODg4ODg4NGEd+F8MtKSkdliQEDg0ICQoKBQUFBQoKCQgNDgQkREQOGCoqJCweHhsbJgAAAAAEAAD/twQAA7cACgAeACEARAAAJSERIyInJj0BIxETNTQnJiMhIgcGHQEUFxYzITI3NhMzJwURFAcGIyEiJyY9ASEiJyY1ETQ3NjMhMhcWHQEWHwEWFxYVAbcCAO4XEBDbkgUGB/5uCAUGBgUIAZIHBgWSq6sBJRAQF/3cFxAQ/skXEBAQEBcCbhYQEAwJ6RAMCwABbhAQF+39bgM3JAgFBgYFCCQIBQUFBf6Iq/T+gBcQEBAQF1sQEBcDABcQEBAQF7sICOoQGxsXAAACABoAdQJCAq8AGgA1AAAlFA8BBiMiJwEmNTQ3ATYzMh8BFhUUDwEXFhUzFA8BBiMiJwEmNTQ3ATYzMh8BFhUUDwEXFhUBZgUdBgcIBf71BQUBCwUIBwYdBQXh4QXcBh0FCAcG/vYGBgEKBgcIBR0GBuHhBqUIBhwGBgEKBgcIBQELBQUdBgcHBuHgBgcIBhwGBgEKBgcIBQELBQUdBgcHBuHgBgcAAAACAAcAdQIvAq8AGgA1AAABFAcBBiMiLwEmNTQ/AScmNTQ/ATYzMhcBFhUzFAcBBiMiLwEmNTQ/AScmNTQ/ATYzMhcBFhUBVAb+9gYHCAUdBgbh4QYGHQUIBwYBCgbbBf71BQgHBhwGBuDgBgYcBgcIBQELBQGSBwb+9gYGHAYIBwbg4QYHBwYdBQX+9QUIBwb+9gYGHAYIBwbg4QYHBwYdBQX+9QUIAAACACwAmgJmAsIAGgA1AAAlFA8BBiMiLwEHBiMiLwEmNTQ3ATYzMhcBFhU1FA8BBiMiLwEHBiMiLwEmNTQ3ATYzMhcBFhUCZgUdBgcIBeHgBggHBhwGBgEKBgcIBQELBQUdBgcIBeHgBggHBhwGBgEKBgcIBQELBckHBh0FBeHhBQUdBgcIBQELBQX+9QUI3AgGHAYG4OAGBhwGCAcGAQoGBv72BgcAAAACACwArAJmAtQAGgA1AAABFAcBBiMiJwEmNTQ/ATYzMh8BNzYzMh8BFhU1FAcBBiMiJwEmNTQ/ATYzMh8BNzYzMh8BFhUCZgX+9QUIBwb+9gYGHAYHCAbg4QUIBwYdBQX+9QUIBwb+9gYGHAYHCAbg4QUIBwYdBQHJBwb+9gYGAQoGBwgFHQYG4eEGBh0FCNwIBv72BgYBCgYIBwYcBgbg4AYGHAYHAAABABoAdQFmAq8AGgAAARQPARcWFRQPAQYjIicBJjU0NwE2MzIfARYVAWYF4eEFBR0GBwgF/vUFBQELBQgHBh0FAoAHBuHgBgcIBhwGBgEKBgcIBQELBQUdBgcAAAEABwB1AVQCrwAaAAABFAcBBiMiLwEmNTQ/AScmNTQ/ATYzMhcBFhUBVAb+9gYHCAUdBgbh4QYGHQUIBwYBCgYBkgcG/vYGBhwGCAcG4OEGBwcGHQUF/vUFCAAAAQAsAOMCZgIvABoAAAEUDwEGIyIvAQcGIyIvASY1NDcBNjMyFwEWFQJmBR0GBwgF4eAGCAcGHAYGAQoGBwgFAQsFARIHBhwGBuDgBgYcBgcIBQELBQX+9QUIAAABACwA9QJmAkIAGgAAARQHAQYjIicBJjU0PwE2MzIfATc2MzIfARYVAmYF/vUFCAcG/vYGBhwGBwgG4OEFCAcGHQUCEgcG/vYGBgEKBgcIBR0GBuHhBgYdBQgAAAgAJf/bA9sDtwAQACEAMgBDAFQAZQB2AIcAACUUBwYjIicmNTQ3NjMyFxYVBRQHBiMiJyY1NDc2MzIXFhUBFAcGIyInJjU0NzYzMhcWFQEUBwYjIicmNTQ3NjMyFxYVARQHBiMiJyY1NDc2MzIXFhUBFAcGIyInJjU0NzYzMhcWFQEUBwYjIicmNTQ3NjMyFxYVBRQHBiMiJyY1NDc2MzIXFhUBLRYVHx0WFhYVHh8VFgEcFRYeHhYVFRYeHhYV/m4WFR4fFRUVFR8eFRYCrxYWHR8VFhYVHx4VFv3ZGxsmJRsbGxslJhsbApwVFR8eFRYWFR4fFRX+kyAgLi4gICAgLi4gIAEvJiY0NiUlJSU2NCYmmh4VFhYWHR8VFRUVH3UfFRYWFR8eFRYWFR4Bkh4WFRUWHh4WFRUWHv7jHRYWFhUeHxUVFRUfAjklGxsbGyUmGxsbGyb+5B4WFRUWHh4WFRUWHgGSLiAgICAuLiAgICAudjUlJiYlNTUmJSUmNQAAAAAFAAAAAANuA24ABgARABcAIwA4AAATFwcjNSM1JRYPAQYnJj8BNhcDAScBFTMBNzY1NC8BJiMiDwElERQHBiMhIicmNRE0NzYzITIXFhXnVx4gNwEKCAmnCQgICqYKB5wBN6X+yaUBWzUQEFcQFxcQNAGAMTBE/dxEMTAwMUQCJEQwMQE+Vx43IP0ICqYKCAgKpgoI/nUBN6X+yaUBXDQQFxcQVxAQNTf93EQxMDAxRAIkRDAxMTBEAAAAAAIAEgASA6UDkgBZAGMAAAEUBwYrARQHFxYVFAcGIyIvAQYHBgcGBwYHBiMRIxEiJyYnJicmLwEHBiMiJyYnJj8BJjUjIicmNTQ3NjsBNScmNTQ3NjMyHwEhNzYzMhcWFRQPARUzMhcWFQEhNDc2MzIXFhUDpQsLD4AmdwoKCw8QCnEDBgUTEhMTHBwbSR0dHRUVERAICWkLEA4LCgEBCnMhgA8LCwsLD4BjCwsLDw8KYwHjYgsPDwsLC2OADwsL/u3+kzU1TEw2NQGSDwoLYkR3Cw8PCwsLcQMFBAwMCQkHCAIA/gAICAsLCwsICHcMCQsPDwuCQVwLCg8PCwuoYwsODwsLC2NjCwsLDw4LY6gLCw8BSUw2NTU2TAAABQAAAAADJQNuABQAKQA+AEYAcwAAJRE0JyYrASIHBhURFBcWOwEyNzY1MxE0JyYrASIHBhURFBcWOwEyNzY1MxE0JyYrASIHBhURFBcWOwEyNzY1ASEnJicjBgcFFRQHBisBERQHBiMhIicmNREjIicmPQE0NzY7ATc2NzY7ATIXFh8BMzIXFhUBJQYFCCQIBQYGBQgkCAUGkgUFCCUIBQUFBQglCAUFkgUFCCUIBQUFBQglCAUF/skBABsEBrUGBAH3BgUINxobJv4lJhsbNwgFBQUFCLEoCBcWF7cXFhYJKLAIBQalAZIIBQUFBQj+bggGBQUGCAGSCAUFBQUI/m4IBgUFBggBkggFBQUFCP5uCAYFBQYIAjZDBQICBVUkCAYF/eMwIiMhIi8CIAUGCCQIBQVgFQ8PDw8VYAUFCAAEAAAAAAMlA7cAAwAHAGEAowAAJRMvARsBDwETJicmIyIHBiMiJyYjIgcGBxYXFhcWFxYXFhcWFxYXFhcWFxYXFhcWFxYzMjc2NzY3Njc2OwEyFxYXFhcWFxYzMjc2NzY3Njc2NzY3Njc2NzY3Njc2NzY3NjcTFAcGIyEiJyY1NDc2NzY3Njc2NyczJjU0NyY1NDc2NzY3NjMyFxYzMjc2MzIXFhcWFxYVFAcWBzMHFhcWFxYXFhUBSTc3SdtKSjaSAQEGMSg4BAgIBDcoMQYBAQEBAQMDAgEDAwEBAwQBAQQEAwMFBQUFBwYIFA0OBQUDAwQEBgcGBAMDAwYFDQ0VBwcGBgUFBAQDAwQCAQMEAQEDAwEBAwMCAQHuKipF/g1GKSoDAggJDQ0XFx80egwBb3gKFBMVEhkRHx8RER8fERkTFBQUCXhuBBB6LiQZGQwMBQVJAQBJJf6SAW4lSQFBAwEECwEBCwQBAwoFAgICBAIKCQIDBwcDAgYFAgIEAwECAQEHBwoKCgoHBwcHCgoKCgcHAQECAQMEAgIFBgIDBwcDAgkKAgQCAgIFCv4KRSgnJyhFIyAhJycgHxwcDn4lJAcMFiAhGCMqKRgVEhISEhUYKSojGCEgFi8tgBMlJC4tKSksAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAEAAINB2OlfDzz1AAsEAAAAAADZMKQGAAAAANkwpAYAAP+ABIADtwAAAAgAAgAAAAAAAAABAAADmf+aAAAEgAAAAAAEgAABAAAAAAAAAAAAAAAAAAAAeQQAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAACABAAAgAQAAMAEAABVBAAAqwQAAKsEAACrBAAAkgQAANUEAACABAAAqwQAAasEAACrBAAAgAQAAFUEAAArBAAAVQQAAFUEAAAABAAAVQQAAFUEAAArBAAAKwQAACsEAAArBAAAKwQAACsEAAArBAAAKwQAACsEAAArBAAAVQQAANUEAACABAAAAAQAAKsEAACrBAAAqwQAAFUEAACABAAAVQQAAAAEAADVBAAAgAQAAIAEAACrBAAAKwQAAKsEAABVBAABAAQAATMEAABgBAAA1QQAANUEAAEABAABAAQAAAAEAAEhBAAAiAQAAIAEAABvBAAAgASAAAAEAAAAA7cAAAQAAEUDJQA/BAAAAAJJAAAEAAAABAAAAAQAAAcDJQAABAAAAAQAAAADtwAABAAAJQQAAAAEAAAAAkkAGgJJAAcCkgAsApIALAFuABoBbgAHApIALAKSACwEAAAlBAAAAAO3ABIDJQAABAAAAAAAAAAAAAAAAAoAFAAeACgAMgA8AEYAUABaAGQAbgB4AIIAjACWAKAAqgC0AL4AyADSANwA5gDwAPoBBAEOATIBdgGKAhACUAJqAoACkgKsAsQC/gM2A4oDvgP4BFYEsgUYBXQFngWyBe4GOgaKBsoHFAdmB6QICAhYCLYI8gkWCVwJrgoAClQKrgr0CzoLbAvYC/QMNgyADJwMvA0GDUgNVg1kDawN7g4QDh4OLA6WDswPVA+kEAwQmhFiEYIR1hIGEkoSuBL2E3oT2BQ2FFgUxhU8FYQWLhakFwoXXheyGAYYWhiIGLYY5BkSGdQaMhrAG2AcVBxeAAEAAAB5AKQACQAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAOAK4AAQAAAAAAAQAHAAAAAQAAAAAAAgAHAGAAAQAAAAAAAwAHADYAAQAAAAAABAAHAHUAAQAAAAAABQALABUAAQAAAAAABgAHAEsAAQAAAAAACgAaAIoAAwABBAkAAQAOAAcAAwABBAkAAgAOAGcAAwABBAkAAwAOAD0AAwABBAkABAAOAHwAAwABBAkABQAWACAAAwABBAkABgAOAFIAAwABBAkACgA0AKRpY29tb29uAGkAYwBvAG0AbwBvAG5WZXJzaW9uIDEuMABWAGUAcgBzAGkAbwBuACAAMQAuADBpY29tb29uAGkAYwBvAG0AbwBvAG5pY29tb29uAGkAYwBvAG0AbwBvAG5SZWd1bGFyAFIAZQBnAHUAbABhAHJpY29tb29uAGkAYwBvAG0AbwBvAG5Gb250IGdlbmVyYXRlZCBieSBJY29Nb29uLgBGAG8AbgB0ACAAZwBlAG4AZQByAGEAdABlAGQAIABiAHkAIABJAGMAbwBNAG8AbwBuAC4AAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA) format('woff');
+        font-weight: normal;
+        font-style: normal
+      }
+
+      i {
+        font-family: 'icomoon' !important;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale
+      }
+
+      .i-icon-menu:before {
+        content: "\e606"
+      }
+
+      .i-icon-more-vert:before {
+        content: "\e608"
+      }
+
+      .infoplus_labelControl {
+        color: #000000
+      }
+
+      .infoplus_repeatParentElement {
+        position: relative
+      }
+
+      div.infoplus_addLinkDiv {
+        margin-top: 6px;
+        line-height: 19px;
+        text-align: left;
+        padding-left: 6px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAKYSURBVDiNzZRLSJRhFIbfmcm7qYk5OuMFnfJCkkESlYkIbtwEYYGKJhERRIJkbaKNmxa5MwjCRXjdlLRIStPEEBNXTlSoqDOpjTOaOfrPxWa+c76/RSiOORZk0Lv8Dt/DwzmHo1FVFfsZ7b7S/gXwQLBCU/9tE0uuIubLxJREkiGYHMTcJpi6mis6Znf7p9mth039DeXE8mGq3pSck5SPiJCD8Es/ltw2jE4PYnnlq52I6lpqn3X/FvgTxq0FR4ujshKPY0aZgmPDBiEFYkNjkRhhxMhUHz7NTHiIqbbzWk93UOCD1w2ZLHn4hOmsIUufjyF7H7weL4RKCA8PgwoVPulDbkwe3k0OYMo6uyiIip7fHLBsMgKGwpKr4+IOGzIScjHsGMCG+A6v2MCtk/dw49gdrPmcWF1zYNQ+hNPZJdCEskEwVW9nBACJuSY9MRsT6x+woqxA8SpYczu36jbLPITPA4/yDV8UKwqzCyGYarYzAqYsmIzhIZGYc1nhlz7cPXU/oL+PLnYCAOp7K2FzWpCXUADBZNzDkOARLrj8CoROYK+oLKGBCsEU8L7T0GZzzh2JDovGmncV9W+vwrOsoOXS0y0zANBqtDDEpmF+yQpisgU1FEztZssY0iIzoAofNEyIPxQVYCBZhVZqkBqTgZfv30Awte9l2CH9uutj00OGM6ZSjHzuBUlCfW8lVAYAFaFaHYpNZegd78G6y71IzB3bGb8s9pUnF8qJqdWYpI8qyinFwroVNqcVqpRIic9ESkw6XplfYGzio4ck15obJ4Iv9mYqHpeVC6aHrKPk4txz0McmAyqwsDqPvvFBKG6vnSTX7YQFBQLA+eYSk2CqElvHgSCYHcTcxpK6zI2Tf34c/ib//4H9AZnTfwI1/HMUAAAAAElFTkSuQmCC) no-repeat left center;
+        background-position-x: 4px
+      }
+
+      div.infoplus_addLinkContainerDiv {
+        text-align: left
+      }
+
+      .infoplus_popupMenu {
+        background-color: White;
+        position: absolute;
+        left: -200px;
+        top: -200px;
+        border: 1px solid #9d9da1;
+        padding: 3px;
+        line-height: 20px;
+        cursor: pointer;
+        -ms-opacity: 0.70;
+        opacity: .70;
+        width: 28px;
+        overflow-x: hidden;
+        text-align: left
+      }
+
+      .infoplus_popupMenu:hover {
+        width: 83px;
+        -ms-opacity: 1;
+        opacity: 1
+      }
+
+      div.infoplus_pictureControl .displayDiv {
+        background-color: white;
+        position: relative;
+        overflow-y: hidden
+      }
+
+      div.infoplus_pictureControl .maskDiv {
+        -moz-opacity: 0.5;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #000000
+      }
+
+      div.infoplus_pictureControl .uploadDiv {
+        background: linear-gradient(transparent, transparent), url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNDggNDgiPgogICAgPHBhdGggZmlsbD0iIzhDQkNENiIgZD0iTTQwLDQxSDhjLTIuMiwwLTQtMS44LTQtNFYxMWMwLTIuMiwxLjgtNCw0LTRoMzJjMi4yLDAsNCwxLjgsNCw0djI2QzQ0LDM5LjIsNDIuMiw0MSw0MCw0MXoiLz4KICAgIDxjaXJjbGUgZmlsbD0iI0IzRERGNSIgY3g9IjM1IiBjeT0iMTUiIHI9IjMiLz4KICAgIDxwb2x5Z29uIGZpbGw9IiM5QUM5RTMiIHBvaW50cz0iMjAsMTUgOSwzMSAzMSwzMSIvPgogICAgPHBvbHlnb24gZmlsbD0iI0IzRERGNSIgcG9pbnRzPSIzMSwyMSAyMywzMSAzOSwzMSIvPgogICAgPGNpcmNsZSBmaWxsPSIjNDNBMDQ3IiBjeD0iMzgiIGN5PSIzNiIgcj0iMTAiLz4KICAgIDxnIGZpbGw9IiNmZmYiPgogICAgICAgIDxyZWN0IHg9IjM2IiB5PSIzMCIgd2lkdGg9IjQiIGhlaWdodD0iMTIiLz4KICAgICAgICA8cmVjdCB4PSIzMiIgeT0iMzQiIHdpZHRoPSIxMiIgaGVpZ2h0PSI0Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=) no-repeat scroll center center;
+        border: 1px dashed #aaaaaa
+      }
+
+      div.infoplus_pictureControl .displayDiv:hover {
+        overflow: visible
+      }
+
+      div.infoplus_labelControl {
+        display: inline-block;
+        word-break: break-all;
+        border: none !important
+      }
+
+      div.infoplus_labelControlContainer {
+        display: inline-block
+      }
+
+      div.infoplus_buttonControlContainer {
+        display: inline-block
+      }
+
+      button.infoplus_buttonControl {
+        padding: 2px 4px;
+        display: inline-block;
+        margin-bottom: 0;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        color: #333333;
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+        background-color: #f5f5f5;
+        background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+        background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+        background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+        background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+        background-repeat: repeat-x;
+        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+        border: 1px solid #bbbbbb;
+        border-bottom-color: #a2a2a2;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
+      }
+
+      button.infoplus_buttonControl:hover, button.infoplus_buttonControl:active, button.infoplus_buttonControl[disabled] {
+        color: #333333;
+        background-color: #e6e6e6;
+        *background-color: #d9d9d9
+      }
+
+      button.infoplus_buttonControl:active {
+        background-color: #cccccc \9
+      }
+
+      button.infoplus_buttonControl:first-child {
+        *margin-left: 0
+      }
+
+      button.infoplus_buttonControl:hover {
+        color: #333333;
+        text-decoration: none;
+        background-color: #e6e6e6;
+        *background-color: #d9d9d9;
+        background-position: 0 -15px;
+        -webkit-transition: background-position 0.1s linear;
+        -moz-transition: background-position 0.1s linear;
+        -o-transition: background-position 0.1s linear;
+        transition: background-position 0.1s linear
+      }
+
+      button.infoplus_buttonControl:focus {
+        outline: thin dotted #333;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px
+      }
+
+      button.infoplus_buttonControl:active {
+        background-color: #e6e6e6;
+        background-color: #d9d9d9 \9;
+        background-image: none;
+        outline: 0;
+        -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)
+      }
+
+      .infoplus_iframeControlContainer {
+        position: relative
+      }
+
+      * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box
+      }
+
+      html {
+        font-size: 16px
+      }
+
+      body, div, ul, li, table, img {
+        margin: 0;
+        padding: 0;
+        border: none
+      }
+
+      body {
+        font-size: 14px !important;
+        font-family: SimSun, 'Songti SC', 'Microsoft YaHei', SimHei, 'Heiti SC', sans-serif !important;
+        background-color: #E5E5E5 !important;
+        line-height: normal;
+        margin: 0 !important;
+        position: relative
+      }
+
+      td {
+        text-align: left
+      }
+
+      tbody {
+        border-color: inherit;
+        display: table-row-group;
+        vertical-align: middle
+      }
+
+      a {
+        color: #0560a6;
+        text-decoration: none
+      }
+
+      a:hover {
+        text-decoration: underline
+      }
+
+      #div_render_container {
+        position: relative;
+        text-align: center
+      }
+
+      #renderContent_holder {
+        padding-bottom: 15px;
+        text-align: center
+      }
+
+      #header_holder {
+        left: 0;
+        right: 0;
+        position: fixed;
+        z-index: 1;
+        min-width: 310px
+      }
+
+      #title_holder {
+        color: white
+      }
+
+      #command_holder {
+        width: 100%;
+        background-color: #f5f5f5;
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+        -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16)
+      }
+
+      .div_content {
+        text-align: left;
+        padding-left: 0;
+        padding-right: 0;
+        margin: auto
+      }
+
+      #form_holder {
+        height: auto;
+        position: relative
+      }
+
+      #master_footer {
+        padding-bottom: 2px;
+        text-align: center
+      }
+
+      #render_holder {
+        display: inline-block;
+        text-align: center;
+        position: relative
+      }
+
+      .round-corner {
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        padding: 4px 0;
+        border-collapse: separate
+      }
+
+      .color_o1 {
+        color: #FAAC18
+      }
+
+      .color_b2 {
+        color: #0560A6
+      }
+
+      div.form_remark_holder {
+        margin: auto;
+        background-color: white;
+        color: #0560A6
+      }
+
+      div.form_remark_holder.shadow {
+        -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+        -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12)
+      }
+
+      div.form_remark_holder ul {
+        background-color: #ffffff;
+        list-style: none;
+        text-align: center;
+        padding: 5px 20px
+      }
+
+      div.form_remark_holder ul li {
+        font-size: 12px;
+        text-align: left;
+        padding-top: 8px;
+        padding-bottom: 8px
+      }
+
+      div.form_remark_title {
+        overflow: hidden
+      }
+
+      div.form_remark_title:before {
+        content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAoJJREFUeNosUktrFEEQrq7unp1ZdpcNCTEPIoRs8EH0EEiU4CUGDxLw4JKzOSTiIYIoIv4GEbx5yCEePYwHhYCHSBA8GU8i+EgiicHHbgwmu8nOs7usWa2e6Wm6v6qvvq9H1Ig2tuD5WpDEJCQaY6RFpVSapohoJSVJorV0lZ4agZGTWn3ehOXl5V11BoWTWsNQNCIIgmyBSAqISErRtLS6+kGIi7Lr3O36Ud5gBwknSQUZ6x29GT3V0VsOf++sRXpQoGch14oohOKPA0dFUSSlNAC8ACBrkvv3qgBgAaanT9958NXzkEA4jmNiwxhsGn1oHe4hJ1XS/DlzaaAXbA+YfrD9mFy50GNadQVZk7Eq7Mcsy9owDP+p5OjsBENGgGASKWSplGfR7AQrabcASFHiAIatWhDtSq1evmpYoWNCfhLAldffSGBi9kyyryyYIPrPIISI45jLFItF31/lWmEIS0svhoaO5/P5ZrPJMGZgmKIkgDRM4+BYgRbvTgiEp+8mr95c5LP5+bkboyAuV64/fFv7cyB0IQ0RW60W+91oNObmJkTWOZwfg1wux4XHx4DzOWZnx1k0i2ESlVrNaJd+Vbr4KOW3z6hHtybZ6wG2FrOd4S4F4fYhFVFJxQLYhEKhYAna3gDzVCoD0A7i0b4T13UjgszPVhDw52PNfvoO1KccBEQwNktDwVDNFO83YbvugXNQLpcVU7P9pVJpYeHx2UHd3Vl2ncw6Fs3MgGprp75Rk06pzyrFm2Lx2brv+3VnmIxnjgz/ArumwffIOVwrH0qtdYyx46bd8Xq1WhV7RL7/5cnKehRIF1z2IS1lnKIdXoA8pyrlhGtTlZmZE38FGACxemPwwLwFJQAAAABJRU5ErkJggg==);
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+        position: relative;
+        top: 2px
+      }
+
+      #div_loader {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #e5e5e5
+      }
+
+      #help_content {
+        position: fixed;
+        z-index: 10001;
+        cursor: pointer
+      }
+
+      body {
+        overflow-x: hidden;
+        background-color: #f3f3f3 !important
+      }
+
+      .div_content {
+        background-color: #f3f3f3
+      }
+
+      #master_footer {
+        background-color: #f3f3f3
+      }
+
+      div.infoplus_view_wrap_inner {
+        overflow-x: auto;
+        position: relative;
+        top: 10px;
+        -webkit-overflow-scrolling: touch
+      }
+
+      @media screen and (-ms-high-contrast: active),(-ms-high-contrast: none) {
+        div.infoplus_view_wrap_inner {
+          top: 17px
+        }
+      }
+
+      div.infoplus_view_wrap_outer {
+        overflow: hidden;
+        background-color: white;
+        margin-bottom: 10px
+      }
+
+      div.form_remark_title {
+        font-size: 0.9rem
+      }
+
+      div.form_remark_holder.shadow {
+        -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+        -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 4px 0 rgba(0, 0, 0, 0.12)
+      }
+
+      .infoplus_popupMenu {
+        background-image: -webkit-linear-gradient(bottom, #e0e0e0, white);
+        background-image: -moz-linear-gradient(bottom, #e0e0e0, white);
+        background-image: -o-linear-gradient(bottom, #e0e0e0, white);
+        background-image: linear-gradient(to top, #e0e0e0, white)
+      }
+
+      div.infoplus_pictureControl .displayDiv {
+        overflow: visible
+      }
+
+      #title_holder {
+        height: 46px
+      }
+
+      #renderContent_holder {
+        padding-top: 105px;
+        background-color: #f3f3f3
+      }
+
+      div.infoplus_view {
+        background-color: white;
+        margin-bottom: 15px;
+        display: block;
+        padding: 10px;
+        position: relative
+      }
+
+      #title_holder.todo {
+        background-color: #039be5
+      }
+
+      #title_icon {
+        display: inline-block;
+        float: left;
+        width: 36px;
+        font-size: 24px;
+        color: white;
+        text-align: center;
+        cursor: pointer
+      }
+
+      #form_command_bar {
+        background-color: #f5f5f5;
+        padding-right: 3px;
+        min-width: 280px;
+        position: relative
+      }
+
+      #command_bar_title_icon {
+        float: left;
+        list-style: none;
+        font-size: 24px;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+        z-index: 1;
+        position: relative
+      }
+
+      #command_bar_title_icon.todo {
+        background-color: #039be5
+      }
+
+      #form_command_bar li.no_action {
+        margin: 4px 2px;
+        padding: 4px 0 0 5px;
+        float: left;
+        position: relative;
+        text-align: left;
+        list-style: none;
+        color: #009966;
+        font-size: 14px;
+        font-weight: bold
+      }
+
+      #title_content {
+        padding-left: 5px;
+        font-size: 14px;
+        color: white;
+        float: left;
+        text-align: left;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap
+      }
+
+      #title_description {
+        padding-right: 9px;
+        font-size: 12px;
+        color: #eee;
+        float: right
+      }
+
+      #title_description_short {
+        padding-right: 9px;
+        font-size: 12px;
+        color: #eee;
+        float: right
+      }
+
+      #nav_menu {
+        position: fixed;
+        height: 100%;
+        width: 158px;
+        left: 0;
+        background-color: #FFFFFF;
+        -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.18);
+        -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.18);
+        overflow-y: auto;
+        z-index: 1;
+        padding-top: 8px
+      }
+
+      li.tool_button {
+        position: relative;
+        text-align: center;
+        list-style: none;
+        float: right
+      }
+
+      a.tool_button {
+        display: inline-block;
+        margin-bottom: 0;
+        text-align: center;
+        vertical-align: middle;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid transparent;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        color: #4a4a4a
+      }
+
+      a.tool_button:hover {
+        display: inline-block;
+        *display: inline;
+        padding: 3px;
+        margin-bottom: 0;
+        *margin-left: .3em;
+        line-height: 18px;
+        *line-height: 18px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid #c5c5c5;
+        text-decoration: none;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background-color: #F8F8F8;
+        *background-color: #F8F8F8;
+        color: #4a4a4a
+      }
+
+      #div_footer_copy_content {
+        padding: 10px 0 10px 0;
+        text-align: center;
+        color: #666666
+      }
+
+      #div_footer_copy_content span.copyright {
+        font-family: 'Microsoft YaHei', PingFangSC-Regular, SimHei, 'Heiti SC', sans-serif
+      }
+
+      div.infoplus_view_wrap_outer {
+        margin: 0
+      }
+
+      #form_holder {
+        -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+        -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+        margin-bottom: 10px;
+        background-color: white
+      }
+
+      div.infoplus_view_wrap_outer:not(:first-child):not(:nth-last-of-type(2)) {
+        margin-bottom: 10px
+      }
+
+      li.tool_button {
+        margin: 2px 2px
+      }
+
+      a.tool_button {
+        line-height: 34px;
+        padding: 3px 5px;
+        font-size: 1.6rem
+      }
+
+      a.tool_button:hover {
+        line-height: 34px;
+        padding: 3px 5px;
+        border: 1px solid transparent;
+        background-color: transparent
+      }
+
+      #title_icon {
+        height: 46px;
+        line-height: 46px
+      }
+
+      #command_holder {
+        height: 48px
+      }
+
+      #form_command_bar {
+        height: 48px
+      }
+
+      #command_bar_title_icon {
+        width: 42px;
+        height: 48px;
+        line-height: 48px
+      }
+
+      #form_command_bar li.no_action {
+        height: 38px;
+        line-height: 32px
+      }
+
+      #title_content {
+        line-height: 46px
+      }
+
+      #title_description {
+        line-height: 45px
+      }
+
+      #title_description_short {
+        line-height: 45px
+      }
+
+      #nav_menu {
+        top: 88px
+      }
+
+      BODY {
+        margin-left: 21px;
+        background-position: 21px 0px
+      }
+
+      BODY {
+        margin-right: 21px
+      }
+
+      TD {
+        BORDER-TOP-COLOR: #d8d8d8;
+        BORDER-LEFT-COLOR: #d8d8d8;
+        BORDER-BOTTOM-COLOR: #d8d8d8;
+        BORDER-RIGHT-COLOR: #d8d8d8
+      }
+
+      TABLE {
+        FONT-SIZE: 10pt;
+        FONT-FAMILY: Microsoft YaHei;
+        TEXT-TRANSFORM: none;
+        FONT-WEIGHT: normal;
+        COLOR: black;
+        FONT-STYLE: normal
+      }
+
+      BODY {
+        FONT-SIZE: 10pt;
+        FONT-FAMILY: Microsoft YaHei
+      }
+
+      BODY {
+        color: windowtext;
+        background-color: window
+      }
+
+      TABLE {
+        BORDER-TOP: medium none;
+        BORDER-RIGHT: medium none;
+        BORDER-BOTTOM: medium none;
+        BORDER-LEFT: medium none
+      }
+
+      BODY {
+        COLOR: black
+      }
+
+      TD.xdTableContentCell {
+        BACKGROUND-COLOR: #ffffff
+      }
+    </style>
+    <style>
+      #div_loader_content {
+        position: fixed;
+        margin-top: -10px;
+        text-align: center;
+        background-color: #e5e5e5
+      }
+
+      #div_loader {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #e5e5e5
+      }
+
+      #div_loader_progress {
+        margin-top: 2px;
+        background-color: #B6CEF1;
+        overflow: hidden;
+        transition: all 0.2s;
+        height: 4px;
+        opacity: 1;
+      }
+
+      #div_loader_progress_percent {
+        background-color: #478AF1;
+        height: 4px;
+        position: relative;
+        transition: all 0.1s;
+      }
+
+      #div_loader_text {
+        display: inline-block;
+        position: relative
+      }
+
+      #help_content {
+        position: fixed;
+        z-index: 10001;
+        cursor: pointer
+      }
+
+      #div_loader_text {
+        font-size: 1.2rem
+      }
+
+      #div_loader_content {
+        left: 15%;
+        width: 80%;
+        margin-left: -5%;
+        top: 45%
+      }
+
+
+    </style>
+    <style>
+      .sf-hidden {
+        display: none !important
+      }
+
+      button.infoplus_buttonControl[disabled] {
+        color: #333333;
+        background-color: #e6e6e6;
+        *background-color: #d9d9d9;
+      }
+
+      button.infoplus_buttonControl[disabled] {
+        cursor: default;
+        background-color: #e6e6e6;
+        background-image: none;
+        opacity: 0.65;
+        filter: alpha(opacity=65);
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+
+      span.blockingNoText {
+        background: #AFC5DE url(/ico_loading.gif) no-repeat center center;
+        height: 100%;
+        font-size: 10.5pt;
+        font-weight: bold;
+        color: #ffffff;
+        display: inline-block;
+      }
+
+    </style>
+    <script src="/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id=help_content></div>
+<div id=div_loader>
+    <div id=div_loader_content>
+        <div id=div_loader_text>
+            <span class=content id="progressText">正在加载页面(<span id="progress">0</span>%)</span>
+        </div>
+        <div id=div_loader_progress>
+            <div id=div_loader_progress_percent style="right:100%"></div>
+        </div>
+    </div>
+
+</div>
+<div id=form_do_action_dialog style=display:none>
+
+
+</div>
+<div id=div_render_container style=display:none>
+    <form id=renderForm>
+        <div id=div_content class=div_content>
+            <div id=header_holder>
+                <div id=title_holder class=todo style="display: flex">
+                    <div id=title_icon class=title_icon><i class=i-icon-menu></i></div>
+                    <div id=title_content style="flex-grow: 1">
+                        <nobr>疫情期间学生请假外出验证:扫码验证</nobr>
+                    </div>
+                    <div style="min-width: max-content">
+                        <div id=title_description>流水号:1<span id="waterNum"></span></div>
+                    </div>
+                </div>
+
+                <div id=command_holder>
+                    <div class="clear sf-hidden"></div>
+                    <div id=command_bar_title_icon class="title_icon todo" style=display:none></div>
+                    <ul id=form_command_bar>
+                        <li class="command_menu btn-group hide sf-hidden" id=command_menu>
+                        <li class=no_action>您无需任何操作
+                        <li class=tool_button><a id=FormCommandMore class=tool_button href=#><i
+                            class=i-icon-more-vert></i></a>
+                        <li class="tool_button hide" style=display:none>
+                    </ul>
+                </div>
+            </div>
+            <div id=renderContent_holder>
+                <div id=nav_menu style=display:none></div>
+
+                <div id=render_holder>
+                    <div id=form_holder style=width:100vw;display:block>
+                        <div class=infoplus_view_wrap_outer>
+                            <div class=infoplus_view_wrap_inner>
+                                <div id=infoplus_view_2030_0 class=infoplus_view>
+                                    <div align=center>
+                                        <table
+                                            style=BORDER-TOP-STYLE:none;WORD-WRAP:break-word;BORDER-LEFT-STYLE:none;WIDTH:320px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM-STYLE:none;BORDER-RIGHT-STYLE:none
+                                            class=xdFormLayout>
+                                            <colgroup>
+                                                <col style=WIDTH:320px width=320>
+                                            <tbody>
+                                            <tr class=xdTableContentRow>
+                                                <td class=xdTableContentCell
+                                                    style="BORDER-TOP:#000000 1pt;BORDER-RIGHT:#bfbfbf 1pt;BORDER-BOTTOM:#bfbfbf 1pt;PADDING-BOTTOM:10px;PADDING-TOP:10px;PADDING-LEFT:10px;BORDER-LEFT:#bfbfbf 1pt;PADDING-RIGHT:10px"
+                                                    valign=top>
+                                                    <div>
+                                                        <table
+                                                            style="WORD-WRAP:break-word;BORDER-TOP:medium none;BORDER-RIGHT:medium none;WIDTH:308px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM:medium none;BORDER-LEFT:medium none"
+                                                            class=xdLayout bordercolor=buttontext border=1>
+                                                            <colgroup>
+                                                                <col style=WIDTH:117px width=117>
+                                                                <col style=WIDTH:191px width=191>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ddeaff">
+                                                                    <div align=left><font size=3>姓名</font></div>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px">
+                                                                    <div align=left>
+                                                                        <div
+                                                                            class="infoplus_labelControlContainer inline"
+                                                                            id=label_0b6e9740-2c71-41c8-9bea-30d95bc19ce1_Container>
+                                                                            <div
+                                                                                style="FONT-SIZE:small;font-family:'PingFang SC',微软雅黑;WIDTH:100%"
+                                                                                title
+                                                                                class="infoplus_control infoplus_labelControl inline"
+                                                                                id=label_0b6e9740-2c71-41c8-9bea-30d95bc19ce1>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            <tr>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ddeaff">
+                                                                    <div align=left><font size=3>学号</font></div>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px">
+                                                                    <div align=left>
+                                                                        <div
+                                                                            class="infoplus_labelControlContainer inline"
+                                                                            id=label_174dc5c4-a59b-489a-a338-84512e1a5fa1_Container>
+                                                                            <div
+                                                                                style="FONT-SIZE:small;font-family:'PingFang SC',微软雅黑;WIDTH:100%"
+                                                                                title
+                                                                                class="infoplus_control infoplus_labelControl inline"
+                                                                                id=label_174dc5c4-a59b-489a-a338-84512e1a5fa1>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            <tr>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ddeaff">
+                                                                    <div align=left><font size=3>学院</font></div>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px">
+                                                                    <div align=left>
+                                                                        <div
+                                                                            class="infoplus_labelControlContainer inline"
+                                                                            id=label_d38de63c-b7b7-4619-9e44-5698e2751032_Container>
+                                                                            <div
+                                                                                style="FONT-SIZE:small;font-family:'PingFang SC',微软雅黑;WIDTH:100%"
+                                                                                title
+                                                                                class="infoplus_control infoplus_labelControl inline"
+                                                                                id=label_d38de63c-b7b7-4619-9e44-5698e2751032>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                            <tr>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ddeaff">
+                                                                    <div align=left><font size=3>班级</font></div>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px">
+                                                                    <div align=left>
+                                                                        <div
+                                                                            class="infoplus_labelControlContainer inline"
+                                                                            id=label_857da466-20a3-4d68-b22e-9b7e81142bd2_Container>
+                                                                            <div
+                                                                                style="FONT-SIZE:small;font-family:'PingFang SC',微软雅黑;WIDTH:100%"
+                                                                                title
+                                                                                class="infoplus_control infoplus_labelControl inline"
+                                                                                id=label_857da466-20a3-4d68-b22e-9b7e81142bd2></div>
+                                                                        </div>
+                                                                    </div>
+                                                            <tr>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ddeaff">
+                                                                    <div align=left><font size=3>身份证号码</font></div>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px">
+                                                                    <div align=left>
+                                                                        <div
+                                                                            class="infoplus_labelControlContainer inline"
+                                                                            id=label_29ba4adc-cb3f-4622-9ce0-ab78accdd651_Container>
+                                                                            <div
+                                                                                style="FONT-SIZE:small;font-family:'PingFang SC',微软雅黑;WIDTH:100%"
+                                                                                title
+                                                                                class="infoplus_control infoplus_labelControl inline"
+                                                                                id=label_29ba4adc-cb3f-4622-9ce0-ab78accdd651></div>
+                                                                        </div>
+                                                                    </div>
+                                                            <tr>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ddeaff">
+                                                                    <div align=left><font size=3>手机号码</font></div>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px">
+                                                                    <div align=left>
+                                                                        <div
+                                                                            class="infoplus_labelControlContainer inline"
+                                                                            id=label_0d86c2cb-2d37-46b9-99dd-8568d3d4ed9f_Container>
+                                                                            <div
+                                                                                style="FONT-SIZE:small;font-family:'PingFang SC',微软雅黑;WIDTH:100%"
+                                                                                title
+                                                                                class="infoplus_control infoplus_labelControl inline"
+                                                                                id=label_0d86c2cb-2d37-46b9-99dd-8568d3d4ed9f></div>
+                                                                        </div>
+                                                                    </div>
+                                                            <tr>
+                                                                <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ffffff"
+                                                                    colspan=2>
+                                                                    <div align=center>
+                                                                        <div class=infoplus_buttonControlContainer
+                                                                             id=button_b4c7b8c2-a8f3-4fab-ade5-d0b639504681_Container
+                                                                             style=position:relative>
+                                                                            <button type=button
+                                                                                    style="FONT-SIZE:small;font-family:'PingFang SC',微软雅黑;WIDTH:200px"
+                                                                                    title
+                                                                                    class="infoplus_control infoplus_buttonControl"
+                                                                                    id=button_b4c7b8c2-a8f3-4fab-ade5-d0b639504681
+                                                                                    value>验证
+                                                                            </button>
+                                                                            <div id="loading1"
+                                                                                 class="blockUI blockOverlay"
+                                                                                 style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(175, 197, 222); opacity: 0.6; cursor: wait; position: absolute;display:none"></div>
+                                                                            <div id="loading2"
+                                                                                 class="blockUI blockMsg blockElement"
+                                                                                 style="z-index: 1011; position: absolute; padding: 0px; margin: 0px; width: 100%; top: 0px; left: 0px; text-align: center; color: rgb(0, 0, 0); border: medium none; background-color: rgb(175, 197, 222); cursor: not-allowed; opacity: 0.6; height: 26px; min-height: 22px;display: none">
+                                                                                <span class="blockingNoText">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <center>
+                                                            <table
+                                                                id="tableDetail"
+                                                                style="WORD-WRAP:break-word;BORDER-TOP:medium none;BORDER-RIGHT:medium none;WIDTH:288px;BORDER-COLLAPSE:collapse;TABLE-LAYOUT:fixed;BORDER-BOTTOM:medium none;BORDER-LEFT:medium none;
+                                                                    margin-top: 5px;display: none"
+                                                                class=xdLayout bordercolor=buttontext border=1>
+                                                                <colgroup>
+                                                                    <col style=WIDTH:105px width=105>
+                                                                    <col style=WIDTH:182px width=182>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ddeaff">
+                                                                        <div align=left><font
+                                                                            size=3>请假开始时间</font></div>
+                                                                    <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px">
+                                                                        <div align=left>
+                                                                            <div
+                                                                                class="infoplus_labelControlContainer inline">
+                                                                                <div
+                                                                                    style="FONT-SIZE:small;font-family:'PingFang SC',微软雅黑;WIDTH:100%"
+                                                                                    title
+                                                                                    class="infoplus_control infoplus_labelControl inline"
+                                                                                    id=start></div>
+                                                                            </div>
+                                                                        </div>
+                                                                <tr>
+                                                                    <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ddeaff">
+                                                                        <div align=left><font
+                                                                            size=3>请假结束时间</font></div>
+                                                                    <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px">
+                                                                        <div align=left>
+                                                                            <div
+                                                                                class="infoplus_labelControlContainer inline">
+                                                                                <div
+                                                                                    style="FONT-SIZE:small;font-family:'PingFang SC',微软雅黑;WIDTH:100%"
+                                                                                    title
+                                                                                    class="infoplus_control infoplus_labelControl inline"
+                                                                                    id=end></div>
+                                                                            </div>
+                                                                        </div>
+                                                                <tr>
+                                                                    <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ddeaff">
+                                                                        <div align=left><font size=3>详情</font>
+                                                                        </div>
+                                                                    <td style="BORDER-TOP:#0070c0 1pt solid;BORDER-RIGHT:#0070c0 1pt solid;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt solid;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt solid;PADDING-RIGHT:10px">
+                                                                        <div align=left>
+                                                                            <div
+                                                                                class="infoplus_labelControlContainer inline">
+                                                                                <div
+                                                                                    style="FONT-SIZE:small;font-family:'PingFang SC',微软雅黑;WIDTH:100%"
+                                                                                    title
+                                                                                    class="infoplus_control infoplus_labelControl inline">
+                                                                                    <a href="#">详情链接</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                <tr>
+                                                                    <td style="BORDER-TOP:#0070c0 1pt;BORDER-RIGHT:#0070c0 1pt;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ffffff"
+                                                                        colspan=2>
+                                                                        <div id=groupSJList name=groupSJList
+                                                                             class=infoplus_repeatParentElement
+                                                                             align=left>
+                                                                            <div
+                                                                                class=infoplus_addLinkContainerDiv>
+                                                                                <div style=left:6px;display:none
+                                                                                     class=infoplus_addLinkDiv></div>
+                                                                            </div>
+                                                                            <ul id=31034 style=display:none
+                                                                                class=infoplus_popupMenu></ul>
+                                                                        </div>
+                                                                <tr>
+                                                                    <td style="BORDER-TOP:#0070c0 1pt;BORDER-RIGHT:#0070c0 1pt;VERTICAL-ALIGN:middle;BORDER-BOTTOM:#0070c0 1pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ffffff"
+                                                                        colspan=2>
+                                                                        <div align=center>
+                                                                            <div
+                                                                                style='font-size:small;font-family:"PingFang SC",微软雅黑;margin-top:20px;display:inline-block'
+                                                                                title
+                                                                                class="infoplus_control infoplus_pictureControl"
+                                                                                id=picture_7de3b243-d1df-465a-85e6-dde908ff5303>
+                                                                                <div class=displayDiv
+                                                                                     style=width:100px;height:100px>
+                                                                                    <a
+                                                                                        data-lightbox=3d078019-6acc-4f6a-bc9d-3df3522ea3a8
+                                                                                        href=/tick.webp><img
+                                                                                        class=preview
+                                                                                        style=display:none
+                                                                                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                                                        border=0><img alt=勾.png
+                                                                                                      src="/tick.webp"
+                                                                                                      style=margin-top:0px;margin-left:0px
+                                                                                                      width=100
+                                                                                                      height=100
+                                                                                                      border=0></a>
+                                                                                    <div class=maskDiv
+                                                                                         style=display:none;width:100px;height:100px></div>
+                                                                                    <div title=删除
+                                                                                         class="infoplus_pictureControl_delete sf-hidden"></div>
+                                                                                </div>
+                                                                                <div title=点击上传图片
+                                                                                     class=uploadDiv
+                                                                                     style=position:relative;overflow:hidden;direction:ltr;width:100px;height:100px;display:none></div>
+                                                                            </div>
+                                                                        </div>
+                                                                <tr style=display:table-row>
+                                                                    <td style="BORDER-TOP:#0070c0 1pt;BORDER-RIGHT:#0070c0 1pt;VERTICAL-ALIGN:bottom;BORDER-BOTTOM:#0070c0 1pt;PADDING-BOTTOM:5px;PADDING-TOP:5px;PADDING-LEFT:5px;BORDER-LEFT:#0070c0 1pt;PADDING-RIGHT:10px;BACKGROUND-COLOR:#ffffff"
+                                                                        colspan=2><font
+                                                                        style="font-family:'PingFang SC',微软雅黑"
+                                                                        face=微软雅黑>
+                                                                        <div align=center>
+                                                                            <div
+                                                                                class="infoplus_iframeControlContainer infoplus_readonly"
+                                                                                id=iframe_cee5fac4-5db1-4c2d-b00a-632efa490196_Container>
+                                                                                <iframe scrolling=auto
+                                                                                        style="FONT-SIZE:small;BORDER-TOP:#dcdcdc 1pt;font-family:'PingFang SC',微软雅黑;BORDER-RIGHT:#dcdcdc 1pt;WIDTH:100%;MARGIN-TOP:15px;BORDER-BOTTOM:#dcdcdc 1pt;PADDING-TOP:15px;BORDER-LEFT:#dcdcdc 1pt"
+                                                                                        class="infoplus_control infoplus_iframeControl infoplus_readonly"
+                                                                                        title
+                                                                                        id=iframe_cee5fac4-5db1-4c2d-b00a-632efa490196
+                                                                                        src="/time.html"></iframe>
+                                                                            </div>
+                                                                        </div>
+                                                                    </font>
+                                                            </table>
+                                                        </center>
+                                                    </div>
+                                        </table>
+                                    </div>
+                                    <div align=center></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id=variables_container></div>
+                    </div>
+                </div>
+
+                <div id=form_remark_holder class="form_remark_holder shadow round-corner"
+                     style=width:428px;display:block align=center>
+                    <ul>
+                        <li class=remark_item style="display:block;border-bottom:medium none">
+                            <div class=form_remark_title><span class=color_b2><span class=color_o1><b>您(<span
+                                id="name2"></span>)</b></span> 正在填写/办理<b>扫码验证</b></span>
+                            </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id=master_footer>
+        <div id=div_footer_copy_containers>
+            <div style=height:1px;background-color:#999999></div>
+            <div style=height:1px;background-color:#FFFFFF></div>
+            <div id=div_footer_copy_content><span class=copyright>©</span> 2009 - 2021. 南京信息工程大学(nuist.edu.cn), All
+                rights reserved. Version 20201230-181144
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id=div_invoice class=sf-hidden></div>
+<iframe id=alive style=display:none;border:0></iframe>
+<div id=infoplus_iframe_flyout_div class="round-corner sf-hidden"></div>
+
+
+<script>
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min + 1)) + min //含最大值，含最小值
+    }
+
+    //加载界面
+    setTimeout(() => {
+        $('#div_loader_progress_percent').css('right', '99%')
+        $('#progress').text(1)
+    }, 100)
+    setTimeout(() => {
+        $('#div_loader_progress_percent').css('right', '98%')
+        $('#progress').text(2)
+    }, 200)
+    setTimeout(() => {
+        $('#div_loader_progress_percent').css('right', '80%')
+        $('#progress').text(20)
+    }, 400)
+    for (let i = 0; i < 11; i++) {
+        setTimeout(() => {
+            $('#div_loader_progress_percent').css('right', (30 - i) + '%')
+            $('#progress').text(70 + i)
+        }, 600 + i * 50)
+    }
+    setTimeout(() => {
+        $('#div_loader_progress_percent').css('right', '0%')
+        $('#progressText').text('加载完成(100%)')
+    }, 1200)
+    setTimeout(() => {
+        $('#div_loader_progress').css('height','0px').css('opacity', 0.5)
+    }, 1300)
+    setTimeout(() => {
+        $('#div_loader').hide()
+        $('#div_render_container').show()
+    }, 1500)
+
+    const savedStr = localStorage.getItem('fake-leave')
+    if (savedStr) {
+        const saved = JSON.parse(savedStr)
+        $('#label_0b6e9740-2c71-41c8-9bea-30d95bc19ce1').text(saved.name)
+        $('#name2').text(saved.name)
+        $('#label_174dc5c4-a59b-489a-a338-84512e1a5fa1').text(saved.stuid)
+        $('#label_d38de63c-b7b7-4619-9e44-5698e2751032').text(saved.college)
+        $('#label_857da466-20a3-4d68-b22e-9b7e81142bd2').text(saved.clazz)
+        $('#label_29ba4adc-cb3f-4622-9ce0-ab78accdd651').text(saved.idcard)
+        $('#label_0d86c2cb-2d37-46b9-99dd-8568d3d4ed9f').text(saved.phone)
+        $('#start').text(saved.start)
+        $('#end').text(saved.end)
+    }
+
+    const waterNum = getRandomIntInclusive(500000, 700000)
+    $('#waterNum').text(waterNum)
+
+    $('#button_b4c7b8c2-a8f3-4fab-ade5-d0b639504681').click(() => {
+        $('#button_b4c7b8c2-a8f3-4fab-ade5-d0b639504681').disabled = true
+        $('#loading1,#loading2').fadeIn(200)
+        setTimeout(() => {
+            $('#button_b4c7b8c2-a8f3-4fab-ade5-d0b639504681').disabled = false
+            $('#loading1,#loading2').fadeOut(200)
+            $('#tableDetail').show()
+        }, 500)
+    })
+
+</script>
+
+</body>
+</html>

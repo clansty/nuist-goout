@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Setup</title>
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<form id="form">
+    <p>
+        <label for="name">姓名</label>
+        <input type="text" id="name">
+    </p>
+    <p>
+        <label for="stuid">学号</label>
+        <input type="text" id="stuid">
+    </p>
+    <p>
+        <label for="college">学院</label>
+        <input type="text" id="college">
+    </p>
+    <p>
+        <label for="clazz">班级</label>
+        <input type="text" id="clazz">
+    </p>
+    <p>
+        <label for="idcard">身份证号码</label>
+        <input type="text" id="idcard">
+    </p>
+    <p>
+        <label for="phone">手机号码</label>
+        <input type="text" id="phone">
+    </p>
+    <p>
+        <label for="start">请假开始时间</label>
+        <input type="text" id="start" placeholder="yyyy-MM-dd hh:mm">
+    </p>
+    <p>
+        <label for="end">请假结束时间</label>
+        <input type="text" id="end" placeholder="yyyy-MM-dd hh:mm">
+    </p>
+    <p>
+        <button>
+            保存
+        </button>
+    </p>
+</form>
+<form id="jsonForm">
+    <p>
+        <textarea id="json"></textarea>
+        <button>
+            导入
+        </button>
+    </p>
+    <p>
+        数据将保存在浏览器的 LocalStorage 中，不会收集任何信息
+    </p>
+</form>
+<script>
+    $(document).ready(() => {
+        $('#form').submit((e) => {
+            e.preventDefault()
+            const name = $('#name').val()
+            const stuid = $('#stuid').val()
+            const college = $('#college').val()
+            const clazz = $('#clazz').val()
+            const idcard = $('#idcard').val()
+            const phone = $('#phone').val()
+            const start = $('#start').val()
+            const end = $('#end').val()
+            const obj = {name, stuid, college, clazz, idcard, phone, start, end}
+            console.log(obj)
+            const json=JSON.stringify(obj)
+            localStorage.setItem('fake-leave', json)
+            $('#json').val(json)
+        })
+        $('#jsonForm').submit((e) => {
+            e.preventDefault()
+            const json = $('#json').val()
+            localStorage.setItem('fake-leave', json)
+            location.reload()
+        })
+        const lastState=localStorage.getItem('fake-leave')
+        if(lastState){
+            const saved=JSON.parse(lastState)
+            for (const savedKey in saved) {
+                $('#'+savedKey).val(saved[savedKey])
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
